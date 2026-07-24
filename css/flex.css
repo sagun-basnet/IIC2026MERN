@@ -4,7 +4,6 @@
   box-sizing: border-box;
   transition: 0.2s ease-in-out all;
 }
-
 .container {
   height: 100vh;
   border: 4px solid black;

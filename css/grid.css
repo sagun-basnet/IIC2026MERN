@@ -19,9 +19,12 @@
   background-color: bisque;
   border: 2px solid black;
 }
-.item1 {
-  /* grid-column-start: 1;
-  grid-column-end: 4; */
+h1 {
+  font-size: 4rem;
+}
+/* .item1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
   grid-column: 1/4;
 }
 .item2 {
@@ -33,4 +36,26 @@
 }
 .item8 {
   grid-column: 1/4;
+} */
+
+/* mobile device  */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .container {
+    background-color: black;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* for Tablet device   */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    background-color: red;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  h1 {
+    font-size: 3rem;
+  }
 }

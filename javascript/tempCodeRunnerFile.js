@@ -1,8 +1,9 @@
-let a = 2;
-let b = 3;
-
-if (!(a > 1)) {
-  console.log("Yes");
-} else {
-  console.log("No");
+function addNumber(a, b) {
+  if (a <= 0) {
+    return 0;
+  }
+  const res = a + b;
+  return res;
 }
+
+console.log(addNumber(0, 10));

@@ -98,4 +98,43 @@
 // add(()=>{
 // }, 3);
 
+// const a = 12;
+// const b = 0;
 
+// const myfun1 = () => {
+//   try {
+//     startLoader();
+//     if (b === 0) {
+//       throw "lkjaskdjfljlkasjldf";
+//     }
+//     const res = a / b;
+//   } catch (err) {
+//     console.log(err);
+//   } finally {
+//     endLoading();
+//     console.log("sdfgsfdg");
+//   }
+// };
+// const myfun2 = () => {};
+// const myfun3 = () => {};
+
+// const arr = [
+//   1,
+//   2,
+//   3,
+//   "asdfasdf",
+//   12.34534,
+//   undefined,
+//   null,
+//   true,
+//   false,
+//   [1, 2, 3],
+//   {
+//     name: "asdfasdf",
+//     address: "asdfasdf",
+//   },
+// ];
+
+// arr.map((item, index) => {
+//   console.log(item + " : " + index);
+// });

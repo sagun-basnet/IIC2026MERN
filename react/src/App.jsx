@@ -10,3 +10,7 @@ const App = () => {
 };
 
 export default App;
+
+// npm create vite@lates ==> to create framwork;
+// npm i ==> to install all packages;
+// npm run dev ==> to run project;

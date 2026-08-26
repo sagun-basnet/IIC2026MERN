@@ -1,18 +1,20 @@
-// const App = () => {
-//   return (
-//     <div>
-//       {/* <h1 className="text-[4rem] font-bold p-[5.2rem] border-4 border-black bg-red- text-primary flex justify-center items-center">
-//         Hello
-//       </h1> */}
-//       <button className="p-2 px-4 rounded-md bg-blue-500 text-white font-bold cursor-pointer hover:bg-blue-700 transition-color ">
-//         Click
-//       </button>
-//     </div>
-//   );
-// };
+import React from "react";
+import Navbar from "./Navbar";
+import Button from "./Button";
 
-// export default App;
+const App = () => {
+  const name = "jhon";
 
-// // npm create vite@lates ==> to create framwork;
-// // npm i ==> to install all packages;
-// // npm run dev ==> to run project;
+  return (
+    <>
+      <Navbar user={name} />
+
+      {name.length !== 0 && <h1 className="text-4xl">Welcome {name}</h1>}
+      {/* <Button text="View More" color="blue" />
+      <Button text="Login" color="red" />
+      <Button text="Register" color="black" /> */}
+    </>
+  );
+};
+
+export default App;

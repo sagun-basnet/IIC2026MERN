@@ -6,3 +6,7 @@
 /* @theme {
   --color-primary: #0f172a;
 } */
+
+button {
+  @apply p-2 px-4 rounded-md font-bold cursor-pointer;
+}

@@ -1,43 +1,97 @@
-// import React from "react";
-// import Navbar from "./Navbar";
-// import Button from "./Button";
-
-import { useEffect, useState } from "react";
+// import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ServicePage from "./pages/ServicePage";
+import ContactPage from "./pages/ContactPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import NotFound from "./pages/NotFound";
+import HomeLayout from "./Layout/HomeLayout";
 
 const App = () => {
-  // let count = 0;
+  // const AdminLayout = () => {
+  //   return (
+  //     <>
+  //       <Topbar />
+  //       <div className="flex">
+  //         <Sidebar />
+  //         <Outlet />
+  //       </div>
+  //     </>
+  //   );
+  // };
 
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState(true);
-
-  const addCount = () => {
-    // setData(true);
-    setCount((prev) => prev + 1);
-    console.log(count);
-  };
-
-  useEffect(() => {
-    console.log("From useEffect");
-  }, []);
+  const route = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomeLayout />,
+      children: [
+        {
+          path: "",
+          element: <HomePage />,
+        },
+        {
+          path: "/home",
+          element: <HomePage />,
+        },
+        {
+          path: "/about",
+          element: <AboutPage />,
+        },
+        {
+          path: "/service",
+          element: <ServicePage />,
+        },
+        {
+          path: "/contact",
+          element: <ContactPage />,
+        },
+      ],
+    },
+    // {
+    //   path: "/admin",
+    //   element: <AdminLayout/>,
+    //   children: [
+    //     {
+    //       path: "",
+    //       element: <DashboardHome/>
+    //     },
+    //     {
+    //       path: "/admin/user-management",
+    //       element: <UserManagement/>
+    //     },
+    //   ]
+    // },
+    {
+      path: "/login",
+      element: <LoginPage />,
+    },
+    {
+      path: "/register",
+      element: <RegisterPage />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center">
-        {data ? <span>{count}</span> : <h1>Nothing to show</h1>}
-        <button
-          // onClick={()=> addCount(23)}
-          onClick={addCount}
-          className="p-2 px-4 bg-blue-500 text-white rounded-md"
-        >
-          +
-        </button>
-      </div>
-      {/* <Navbar user={name} /> */}
-
-      {/* {name.length !== 0 && <h1 className="text-4xl">Welcome {name}</h1>} */}
-      {/* <Button text="View More" color="blue" />
-      <Button text="Login" color="red" />
-      <Button text="Register" color="black" /> */}
+      <RouterProvider router={route} />
+      {/* <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/service" element={<ServicePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer /> */}
     </>
   );
 };

@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NotFound from "./pages/NotFound";
 import HomeLayout from "./Layout/HomeLayout";
+import APIHandling from "./pages/APIHandling";
 
 const App = () => {
   // const AdminLayout = () => {
@@ -66,6 +67,10 @@ const App = () => {
     {
       path: "/login",
       element: <LoginPage />,
+    },
+    {
+      path: "/api",
+      element: <APIHandling />,
     },
     {
       path: "/register",

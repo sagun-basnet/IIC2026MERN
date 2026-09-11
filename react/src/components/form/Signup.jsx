@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -18,10 +19,10 @@ const Signup = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setData(data.push(formData))
+    setData(data.push(formData));
 
     if (formData.name.length === 0) {
       alert("Name Field should be filled");
@@ -38,7 +39,15 @@ const Signup = () => {
       return;
     }
 
-    console.log(formData);
+    // console.log(formData);
+    await axios
+      .post("https://asjdfkaslasdf/post", formData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     setFormData(init);
 

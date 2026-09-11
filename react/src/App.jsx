@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 import NotFound from "./pages/NotFound";
 import HomeLayout from "./Layout/HomeLayout";
 import APIHandling from "./pages/APIHandling";
+import SinglePage from "./pages/SinglePage";
 
 const App = () => {
   // const AdminLayout = () => {
@@ -71,6 +72,10 @@ const App = () => {
     {
       path: "/api",
       element: <APIHandling />,
+    },
+    {
+      path: "/products/:postId",
+      element: <SinglePage />,
     },
     {
       path: "/register",

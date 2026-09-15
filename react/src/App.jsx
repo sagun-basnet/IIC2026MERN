@@ -10,6 +10,8 @@ import NotFound from "./pages/NotFound";
 import HomeLayout from "./Layout/HomeLayout";
 import APIHandling from "./pages/APIHandling";
 import SinglePage from "./pages/SinglePage";
+import AddProduct from "./components/form/AddProduct";
+import ProductTable from "./pages/ProductTable";
 
 const App = () => {
   // const AdminLayout = () => {
@@ -72,6 +74,14 @@ const App = () => {
     {
       path: "/api",
       element: <APIHandling />,
+    },
+    {
+      path: "/add-product",
+      element: <AddProduct />,
+    },
+    {
+      path: "/products",
+      element: <ProductTable />,
     },
     {
       path: "/products/:postId",

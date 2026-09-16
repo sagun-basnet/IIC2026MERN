@@ -4,12 +4,17 @@ import { Link } from "react-router-dom";
 
 const ProductTable = () => {
   const [value, setValue] = useState([]);
+  const token = localStorage.getItem("appToken");
   //   const data = fetch("https://jsonplaceholder.typicode.com/posts");
   //   data.json();
 
   const fetchData = async () => {
     try {
-      const data = await axios.get("https://fakestoreapi.com/products");
+      const data = await axios.get("https://fakestoreapi.com/products", {
+        headers: {
+          Authorization: token,
+        },
+      });
       console.log(data.data);
       setValue(data.data);
     } catch (err) {
@@ -23,7 +28,11 @@ const ProductTable = () => {
 
   const handleDelete = async (id) => {
     await axios
-      .delete(`https://fakestoreapi.com/products/${id}`)
+      .delete(`https://fakestoreapi.com/products/${id}`, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((res) => {
         console.log(res);
       })
@@ -89,7 +98,7 @@ const ProductTable = () => {
                         Delete
                       </button>
                       <Link to={`/edit-product/${item.id}`}>
-                      <button className="bg-blue-500">Edit</button>
+                        <button className="bg-blue-500">Edit</button>
                       </Link>
                     </td>
                   </tr>

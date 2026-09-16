@@ -11,6 +11,11 @@ const APIHandling = () => {
     try {
       const data = await axios.get(
         "https://jsonplaceholder.typicode.com/posts",
+        {
+          headers: {
+            Authorization: token,
+          },
+        },
       );
       console.log(data.data);
       setValue(data.data);

@@ -1,5 +1,5 @@
 import db from "../database/db.js";
-
+import bcrypt from "bcryptjs";
 export const getUser = (req, res) => {
   try {
     const q = `select * from user`;
@@ -87,18 +87,27 @@ export const postUser = (req, res) => {
     const { name, address, phone, email, password } = req.body;
 
     const q = `Insert into user(name, address, phone, email, password) values(?,?,?,?,?)`;
-    db.query(q, [name, address, phone, email, password], (err, result) => {
-      if (err) {
-        return res.send({
-          message: "Error while executing query.",
-          error: err,
+
+    const salt = bcrypt.genSaltSync(10);
+    const encrptedPassword = bcrypt.hashSync(password, salt);
+    console.log(encrptedPassword);
+
+    db.query(
+      q,
+      [name, address, phone, email, encrptedPassword],
+      (err, result) => {
+        if (err) {
+          return res.send({
+            message: "Error while executing query.",
+            error: err,
+          });
+        }
+        return res.status(201).send({
+          message: "User Registered successfully",
+          result: result,
         });
-      }
-      return res.status(201).send({
-        message: "User Registered successfully",
-        result: result,
-      });
-    });
+      },
+    );
   } catch (err) {
     console.log(err);
     res.send(err);

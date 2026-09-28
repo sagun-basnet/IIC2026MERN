@@ -1,5 +1,6 @@
 import db from "../database/db.js";
 import bcrypt from "bcryptjs";
+
 export const getUser = (req, res) => {
   try {
     const q = `select * from user`;
@@ -102,10 +103,20 @@ export const postUser = (req, res) => {
             error: err,
           });
         }
-        return res.status(201).send({
-          message: "User Registered successfully",
-          result: result,
+        const q2 = "askldjfasdfasdfsfd";
+        db.query(q2, [], (err1, result1) => {
+          if (err1) {
+            return res.send({
+              message: "Error while executing query.",
+              error: err,
+            });
+          }
+          return res.send({ result1: result, result2: result1 });
         });
+        // return res.status(201).send({
+        //   message: "User Registered successfully",
+        //   result: result,
+        // });
       },
     );
   } catch (err) {
